@@ -1,6 +1,5 @@
-
 function colorSquare (event) {
-    event.target.style.backgroundColor = "black";
+    event.target.style.backgroundColor = color;
 }
 
 function toggleHover (event) {
@@ -12,13 +11,13 @@ function toggleHover (event) {
 }
 
 function clearGrid() {
-    const grid = document.querySelector("#container");
+    const grid = document.querySelector("#grid");
     document.body.removeChild(grid);
 }
 
 function generateGrid (size) {
-    const container = document.createElement("div");
-    container.setAttribute("id", "container");
+    const grid = document.createElement("div");
+    grid.setAttribute("id", "grid");
     
     for (let i = 0; i < size; i++) {
         const row = document.createElement("div");
@@ -32,11 +31,18 @@ function generateGrid (size) {
             square.addEventListener("mouseout", toggleHover);
             square.addEventListener("click", colorSquare);
         }
-        container.appendChild(row);
+        grid.appendChild(row);
     }
     
-    document.body.appendChild(container);
+    document.body.appendChild(grid);
 }
+
+// TODO: Add palette
+const eraser = document.querySelector("#eraser");
+eraser.addEventListener("click", () => {
+    color = "gray";
+});
+let color = "black";
 
 let mouseDown = 0;
 document.body.onmousedown = () => { 
@@ -46,11 +52,16 @@ document.body.onmouseup = () => {
     mouseDown--; 
 }
 
-const resizeBtn = document.querySelector("#resize");
+const resizeBtn = document.querySelector("#resize-button");
 const sizeInput = document.querySelector("#size");
 resizeBtn.addEventListener("click", () => {
-    clearGrid();
-    generateGrid(sizeInput.value);
+    const newSize = sizeInput.value;
+    if (newSize >= 1 && newSize <= 100) {
+        clearGrid();
+        generateGrid(newSize);
+    } else {
+        alert("Size must be between 1 and 100!");
+    }
 });
 
 const defaultSize = 16;

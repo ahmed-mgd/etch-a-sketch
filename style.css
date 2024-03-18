@@ -1,10 +1,16 @@
-#container {
+#toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#grid {
     padding: 1em;
-    margin: auto;
 }
 
 .row {
     display: flex;
+    justify-content: center;
 }
 
 .square {
