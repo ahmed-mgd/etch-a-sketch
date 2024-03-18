@@ -1,0 +1,20 @@
+#container {
+    padding: 1em;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+}
+
+.square {
+    background-color: gray;
+    border: 1px;
+    border-color: black;
+    width: 2em;
+    height: 2em;
+}
+
+.square-shaded {
+    background-color: white;
+}
