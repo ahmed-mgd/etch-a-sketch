@@ -5,9 +5,9 @@ function colorSquare (event) {
 function toggleHover (event) {
     if (mouseDown && event.type === "mouseover") {
         colorSquare(event);
-    } else {
-        event.target.classList.toggle("square-shaded");
-    }
+    } 
+    event.target.classList.toggle("square-selected");
+
 }
 
 function clearGrid() {
@@ -38,6 +38,8 @@ function generateGrid (size) {
 }
 
 // TODO: Add palette
+const palette = document.querySelector("#color-picker");
+const addColorBtn = document.querySelector("#add-color");
 const eraser = document.querySelector("#eraser");
 eraser.addEventListener("click", () => {
     color = "gray";
@@ -53,16 +55,22 @@ document.body.onmouseup = () => {
 }
 
 const resizeBtn = document.querySelector("#resize-button");
+const resetBtn = document.querySelector("#reset-button");
 const sizeInput = document.querySelector("#size");
 resizeBtn.addEventListener("click", () => {
     const newSize = sizeInput.value;
     if (newSize >= 1 && newSize <= 100) {
+        size = newSize;
         clearGrid();
-        generateGrid(newSize);
+        generateGrid(size);
     } else {
         alert("Size must be between 1 and 100!");
     }
 });
+resetBtn.addEventListener("click", () => {
+    clearGrid();
+    generateGrid(size);
+})
 
-const defaultSize = 16;
-generateGrid(defaultSize);
+let size = 16;
+generateGrid(size);
