@@ -1,3 +1,8 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 #toolbar {
     display: flex;
     align-items: center;
@@ -6,7 +11,7 @@
 }
 
 #grid {
-    padding: 1em;
+    padding: 3em;
     background-color: lavender;
 }
 
@@ -16,7 +21,7 @@
 }
 
 .square {
-    background-color: gray;
+    background-color: white;
     border: 1px;
     border-color: black;
     width: 2em;
@@ -24,10 +29,48 @@
 }
 
 .square-selected {
-    background-color: white;
+    opacity: 0.5;
 }
 
 button {
     width: 7em;
+    height: 4em;
+    border-radius: 1em;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #a9a9a9;
+}
+
+#palette {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: bisque;
+    padding: 2em;
+    border: black solid 3px;
+    border-radius: 2%;
+}
+
+.color-option {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+.color-option:hover {
+    width: 3em;
     height: 3em;
+    transition: 0.3s;
+}
+
+#eraser {
+    margin: auto;
+}
+
+
+#eraser-icon {
+    height: 3em;
+    width: auto;
 }

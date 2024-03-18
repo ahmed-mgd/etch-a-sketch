@@ -38,11 +38,23 @@ function generateGrid (size) {
 }
 
 // TODO: Add palette
-const palette = document.querySelector("#color-picker");
+const palette = document.querySelector("#palette");
+const colorPicker = document.querySelector("#color-picker");
+const colorOptions = ["black", "red", "green", "blue"];
+const numColors = 4;
+for (let i = 0; i < numColors; i++) {
+    const colorOption = document.createElement("div");
+    colorOption.classList.add("color-option");
+    colorOption.style.backgroundColor = colorOptions[i];
+    palette.insertBefore(colorOption, colorPicker);
+    colorOption.addEventListener("click", () => {
+        color = colorOptions[i];
+    })
+}
 const addColorBtn = document.querySelector("#add-color");
 const eraser = document.querySelector("#eraser");
 eraser.addEventListener("click", () => {
-    color = "gray";
+    color = "white";
 });
 let color = "black";
 
