@@ -1,11 +1,16 @@
 body {
     box-sizing: border-box;
     margin: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#toolbar, #controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 #toolbar {
-    display: flex;
-    align-items: center;
     justify-content: space-around;
     padding: 2em 4em;
 }
@@ -22,8 +27,6 @@ body {
 
 .square {
     background-color: white;
-    border: 1px;
-    border-color: black;
     width: 2em;
     height: 2em;
 }
@@ -32,14 +35,14 @@ body {
     opacity: 0.5;
 }
 
-button {
-    width: 7em;
+button, #size-input {
+    width: 4em;
     height: 4em;
     border-radius: 1em;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
-button:hover {
+button:hover, #resize-button:hover, #reset-button:hover {
     background-color: #a9a9a9;
 }
 
@@ -48,7 +51,7 @@ button:hover {
     align-items: center;
     gap: 0.5em;
     background-color: bisque;
-    padding: 2em;
+    padding: 1em;
     border: black solid 3px;
     border-radius: 2%;
 }
@@ -60,17 +63,47 @@ button:hover {
 }
 
 .color-option:hover {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     transition: 0.3s;
 }
 
 #eraser {
     margin: auto;
+    border-radius: 40%;
 }
 
-
-#eraser-icon {
-    height: 3em;
+.icon {
+    height: 2.7em;
     width: auto;
 }
+
+#controls {
+    gap: 3px;
+}
+
+#size-input {
+    font-size: 1.2em;
+    text-align: center;
+    height: 2em;
+    border-radius: 0;
+}
+
+#resize-button {
+    background-color: aliceblue;
+}
+
+#reset-button {
+    background-color: rgba(255, 0, 0, 0.546);
+    margin-left: 3em;
+}
+
+.selected-tool {
+    border: 5px yellowgreen solid;
+}
+
+#logo {
+    display: inline;
+    
+}
+

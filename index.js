@@ -37,7 +37,14 @@ function generateGrid (size) {
     document.body.appendChild(grid);
 }
 
-// TODO: Add palette
+function swapTools (oldTool, newTool, newColor) {
+    color = newColor;
+    oldTool.classList.remove("selected-tool");
+    selectedTool = newTool;
+    newTool.classList.add("selected-tool");
+}
+
+let selectedTool, color;
 const palette = document.querySelector("#palette");
 const colorPicker = document.querySelector("#color-picker");
 const colorOptions = ["black", "red", "green", "blue"];
@@ -48,15 +55,21 @@ for (let i = 0; i < numColors; i++) {
     colorOption.style.backgroundColor = colorOptions[i];
     palette.insertBefore(colorOption, colorPicker);
     colorOption.addEventListener("click", () => {
+        swapTools(selectedTool, colorOption, colorOptions[i]);
+    });
+    if (i === 0) {
+        selectedTool = colorOption;
         color = colorOptions[i];
-    })
+        colorOption.classList.add("selected-tool");
+    }
 }
-const addColorBtn = document.querySelector("#add-color");
+colorPicker.addEventListener("click", () => {
+    swapTools(selectedTool, colorPicker, colorPicker.value);
+});
 const eraser = document.querySelector("#eraser");
 eraser.addEventListener("click", () => {
-    color = "white";
+    swapTools(selectedTool, eraser, "white");
 });
-let color = "black";
 
 let mouseDown = 0;
 document.body.onmousedown = () => { 
@@ -68,7 +81,7 @@ document.body.onmouseup = () => {
 
 const resizeBtn = document.querySelector("#resize-button");
 const resetBtn = document.querySelector("#reset-button");
-const sizeInput = document.querySelector("#size");
+const sizeInput = document.querySelector("#size-input");
 resizeBtn.addEventListener("click", () => {
     const newSize = sizeInput.value;
     if (newSize >= 1 && newSize <= 100) {
