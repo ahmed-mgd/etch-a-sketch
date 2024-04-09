@@ -1,34 +1,41 @@
 body {
     box-sizing: border-box;
-    margin: 0;
+    margin: 2em 0;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: center;
 }
 
-#toolbar, #controls {
+body, #toolbar, #controls, #palette, .row, #grid {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
 #toolbar {
+    flex-direction: column;
     justify-content: space-around;
     padding: 1.5em 4em;
+    gap: 3em;
 }
 
 #grid {
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: stretch;
     padding: 3em;
     background-color: lavender;
+    width: 50em;;
+    height: 50em;
 }
 
 .row {
-    display: flex;
     justify-content: center;
+    align-items: stretch;
+    flex-grow: 1;
 }
 
 .square {
     background-color: white;
-    width: 2em;
-    height: 2em;
+    flex-grow: 1;
 }
 
 .square-selected {
@@ -47,11 +54,10 @@ button:hover, #resize-button:hover, #reset-button:hover {
 }
 
 #palette {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
+    flex-direction: column;
+    gap: 1em;
     background-color: bisque;
-    padding: 1em;
+    padding: 1em 0.7em;
     border: black solid 3px;
     border-radius: 2%;
 }
@@ -104,6 +110,4 @@ button:hover, #resize-button:hover, #reset-button:hover {
 
 #logo {
     display: inline;
-    
 }
-
