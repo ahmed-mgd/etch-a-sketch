@@ -1,13 +1,18 @@
-# etch-a-sketch
+# Etch-A-Sketch
 
 ## Description
 An Etch-A-Sketch application focused on DOM manipulation with Javascript.
+
+Live Demo: https://ahmed-mgd.github.io/etch-a-sketch/
+
+![screenshot](sc.png)
 
 ## Features
 1. Versatile Color Palette and Eraser Tool: user can select colors to draw with from preset options or pick from a color wheel.
 2. Grid Manipulation: ability to resize and reset grid.
 
 ## Lessons
+- Practice with DOM manipulation
 
 ## Challenges
 - When the user hovers over a square, it was slightly difficult to differentiate between "highlighting" (mouse up) and "shading" (mouse down) while minimizing points of control. I ultimately used a variable to keep track of the state of the mouse (up/down) and used a single toggle function to check the status and change the square accordingly.
